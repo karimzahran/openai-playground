@@ -73,8 +73,11 @@ class Audio:
         :param file: The path to the audio file to be translated.
         :return: The translation text.
         """
-        # Can you write the code to translate an audio file?
-        # Hint: You can reference the OpenAI documentation: https://platform.openai.com/docs/api-reference/audio
+        audio_file = open(file, "rb")
+        translation = self.client.audio.translations.create(
+            model="whisper-1", file=audio_file
+        )
+        return translation.text
 
     def play_audio(self, file: str) -> None:
         """

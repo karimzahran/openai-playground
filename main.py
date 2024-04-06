@@ -14,8 +14,8 @@ def main(use_audio: bool):
     while True:
         if use_audio:
             input("Press Enter to start recording...")
-            # Can you figure out how to record audio and then transcribe it to user_input?
-            # Hint: You'll need to save the recording as a .wav file in the media folder.
+            audio_file = audio.record_audio("media/audio_recording.wav")
+            user_input = audio.create_transcription(audio_file)
         else:
             user_input = input("You: ")
 
